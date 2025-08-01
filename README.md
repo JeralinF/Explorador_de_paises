@@ -109,3 +109,6 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 ├── main.py            # Servidor backend con FastAPI y lógica de negocio
 
 └── README.md          # Este archivo
+
+
+Intento de crear el pepilne 
