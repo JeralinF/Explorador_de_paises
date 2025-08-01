@@ -2,9 +2,9 @@ name: CI - Explorador de Países
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master]
+    branches: [master]
 
 jobs:
   test-fastapi:
@@ -25,21 +25,21 @@ jobs:
           --health-retries=5
 
     steps:
-    - name: 📥 Clonar repositorio
-      uses: actions/checkout@v3
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v3
 
-    - name: 🐍 Configurar Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: 📦 Instalar dependencias
-      run: |
-        pip install --upgrade pip
-        pip install -r requirements.txt
+      - name: 📦 Instalar dependencias
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
-    - name: 🚀 Iniciar app y probar endpoint
-      run: |
-        uvicorn main:app --host 127.0.0.1 --port 8000 &
-        sleep 10
-        curl --fail http://127.0.0.1:8000/api/countries/all
+      - name: 🚀 Iniciar app y probar endpoint
+        run: |
+          uvicorn main:app --host 127.0.0.1 --port 8000 &
+          sleep 10
+          curl --fail http://127.0.0.1:8000/api/countries/all
